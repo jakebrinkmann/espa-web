@@ -5,6 +5,11 @@
   <p>Details for: {{ order['orderid'] }} </p>
 {% endblock %}
 
+{% block scriptlinks %}
+    <script type="text/javascript" src="/static/js/jquery.multiDownload.js "></script>
+    <script type="text/javascript" src="/static/js/browser.js"></script>
+{% endblock %}
+
 {% block style %}
     th.product, td.product {width:250px;}
     th.status,  td.status {width:100px;}
@@ -109,6 +114,11 @@
                                 <span class='list_label'>Products by sensor:</span>{{ prod_str }}
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <a href="#" id="download_all">download all</a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -142,7 +152,7 @@
                                     </td>
                                     <td class="{{ rowclass }} purl noborder">
                                         {% if s['status'] == 'complete'%}
-                                             <a href="{{ s['product_dload_url'] }}">Download</a>
+                                             <a href="{{ s['product_dload_url'] }}" class="scene_dl">Download</a>
                                         {% else %}
                                             &nbsp;
                                         {% endif %}
@@ -176,6 +186,11 @@
 
     {% autoescape off %}
         $(document).ready(function(){
+
+            $('#download_all').click(function (event) {
+                event.preventDefault();
+                $('.scene_dl').multiDownload();
+            });
 
             $('.log_dialog').click(function(event){
                 div_id = "#"+event.target.id+"_log"

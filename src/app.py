@@ -31,7 +31,7 @@ espaweb.config['SESSION_TYPE'] = 'memcached'
 espaweb.config['SESSION_MEMCACHED'] = cache
 espaweb.config['SESSION_PERMANENT'] = False
 espaweb.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=120)
-espaweb.config['SESSION_COOKIE_SECURE'] = True
+espaweb.config['SESSION_COOKIE_SECURE'] = False
 
 Session(espaweb)
 api_base_url = os.getenv('ESPA_API_HOST', 'http://localhost:4004/api/v1')

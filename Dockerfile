@@ -4,7 +4,7 @@ RUN mkdir -p /home/espadev/espa-web
 WORKDIR /home/espadev/espa-web
 
 COPY setup/requirements.txt /home/espadev/espa-web
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt  --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org
 
 ENV ESPAWEB_SETTINGS=/home/espadev/.usgs/espaweb-settings.ini
 ENV ESPA_ENV=dev

@@ -163,7 +163,10 @@
                                         {% if s['name'] == 'plot' %}
                                             Plotting & Statistics
                                         {% else %}
-                                            {{ s['name'] }}
+					    {% set namelist = s['name'].split(';') %}
+					    {% for x in namelist %}
+                                                {{ x }}
+				            {% endfor %}
                                         {% endif %}
                                     </td>
                                     <td class="{{ rowclass }} status noborder">

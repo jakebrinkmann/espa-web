@@ -105,6 +105,7 @@ conversions = {
          'bt': 'brightness temperature',
          'toa': 'top of atmosphere',
          'stats': 'plots and statistics',
-         'sr_ndvi': 'sr_ndvi'
+         'sr_ndvi': 'sr_ndvi',
+         'toa_ndvi': 'toa_ndvi'
     }
 }
